@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 
+#+ but displays bad luck for the 4th loop iteration
+#+ and displays good luck for the 8th loop iteration
+
+i=0
+while [ $i -le 9 ];
+do
+	if [ $i -eq 3 ];
+	then
+		echo 'bad luck'
+	elif [ $i -eq 7 ];
+	then
+		echo 'good luck'
+	else
+		echo 'Best School'
+	fi
+	((i++))
+done
