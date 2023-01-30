@@ -3,7 +3,7 @@
 
 while IFS=: read -r l1 l2 l3 l4 l5 l6 l7
 do
-	echo "The user $l1 is part of the $l4, lives in \
+	echo "The user $l1 is part of the $l4 gang, lives in \
 $l6 and rides $l7. $l3 place is protected by \
 the passcode $l2, more info about the user here: $l5"
 done < /etc/passwd
