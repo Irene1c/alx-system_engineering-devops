@@ -4,7 +4,7 @@
 # Make sure that HAproxy can be managed via an init script
 # << EOF : This is a here-text that allows you to include multiple lines of input within a script or command
 
-sudo cat << EOF >> /etc/haproxy/haproxy.cfg
+cat << EOF >> /etc/haproxy/haproxy.cfg
 
 frontend irene-frontend
         bind *:80
@@ -13,8 +13,8 @@ frontend irene-frontend
 
 backend irene-backend
         balance roundrobin
-        server web-01 34.229.137.176:80 check
-        server web-02 100.26.155.24:80 check
+        server 134556-web-01 34.229.137.176:80 check
+        server 134556-web-02 100.26.155.24:80 check
 EOF
 
 sudo echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
