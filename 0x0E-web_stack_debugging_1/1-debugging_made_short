@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#Simpler way of creating the symbolic link and stopping nginx 
+sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
+sudo rm /var/run/nginx.pid
