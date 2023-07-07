@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Configure HAproxy so that it send traffic to web-01 and web-02
+# Distribute requests using a roundrobin algorithm
+# Make sure that HAproxy can be managed via an init script
+# << EOF : This is a here-text that allows you to include multiple lines of input within a script or command
+
+sudo cat << EOF >> /etc/haproxy/haproxy.cfg
+
+frontend irene-frontend
+        bind *:80
+        mode http
+        default_backend irene-backend
+
+backend irene-backend
+        balance roundrobin
+        server web-01 34.229.137.176:80 check
+        server web-02 100.26.155.24:80 check
+EOF
+
+sudo echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+sudo service haproxy restart
