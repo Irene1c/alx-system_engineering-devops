@@ -37,8 +37,6 @@ frontend irene-frontend
         bind *:80
         bind *:443 ssl crt /etc/ssl/www.irenetech.tech/www.irenetech.tech.pem
 
-        redirect scheme https code 301 if !{ ssl_fc }
-
         default_backend irene-backend
 
 backend irene-backend
