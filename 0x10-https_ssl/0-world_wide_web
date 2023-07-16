@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Bash script that will display information about subdomains
+# The script accepts two arguments, domain and subdomain
+
+
+subdomains=("www" "lb-01" "web-01" "web-02")
+
+digDns () {
+	dig "$1.$2" +noall +answer | tail -1 | awk '{split($1, subdomain, "."); print "The subdomain " subdomain[1] " is a " $4 " record and points to " $5}'
+}
+
+if [ $# -eq 1 ]; then
+	for i in "${subdomains[@]}"; do
+		digDns "$i" "$1"
+	done
+elif [ $# -eq 2 ]; then
+	digDns "$2" "$1"
+fi
