@@ -8,4 +8,4 @@ sed -i "s/listen 80 default_server/listen 8080 default_server/" /etc/nginx/sites
 
 pkill apache2
 
-service nginx restart
+sudo -u nginx service nginx restart
