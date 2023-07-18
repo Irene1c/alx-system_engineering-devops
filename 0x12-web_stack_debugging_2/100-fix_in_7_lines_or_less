@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# change Nginx to run as the nginx user and nginx  must be listening on all active IPs on port 8080
+chmod 644 /etc/nginx/nginx.conf
+sed -i "s/#user.*/#user www-data;\\nuser nginx;/" /etc/nginx/nginx.conf
+sed -i "s/listen 80 default_server/listen 8080 default_server/" /etc/nginx/sites-available/default
+sudo pkill apache2
+service nginx restart
