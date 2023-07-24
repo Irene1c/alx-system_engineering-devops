@@ -14,8 +14,8 @@
     Second and N next lines display the title of completed tasks:
     TASK_TITLE (with 1 tabulation and 1 space before the TASK_TITLE)
 """
-from sys import argv
 import requests
+from sys import argv
 
 
 if __name__ == "__main__":
