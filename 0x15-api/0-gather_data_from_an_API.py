@@ -21,8 +21,8 @@ from sys import argv
 if __name__ == "__main__":
 
     url = "https://jsonplaceholder.typicode.com"
-    todo_url = f"{url}/todos?userId={int(argv[1])}"
-    user_url = f"{url}/users/{int(argv[1])}"
+    todo_url = "{}/todos?userId={}".format(url, int(argv[1]))
+    user_url = "{}/users/{}".format(url, int(argv[1]))
 
     user_response = requests.get(user_url)
     user_data = user_response.json()
@@ -37,8 +37,8 @@ if __name__ == "__main__":
         if i["completed"]:
             count += 1
     NUMBER_OF_DONE_TASKS = count
-    print(f"Employee {EMPLOYEE_NAME} is done with tasks"
-          f"({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
+    print("Employee {} is done with tasks({}/{}):"
+          .format(EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS))
     for i in todo_data:
         if i["completed"]:
             print("\t", i["title"])
