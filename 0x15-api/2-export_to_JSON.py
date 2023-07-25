@@ -34,6 +34,7 @@ if __name__ == "__main__":
         for todo in todo_data:
             TASK_COMPLETED_STATUS = todo["completed"]
             TASK_TITLE = todo["title"]
+# create a new dictionary a_dict for each task within the loop
             a_dict = {
                 "task": TASK_TITLE,
                 "completed": TASK_COMPLETED_STATUS,
